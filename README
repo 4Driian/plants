@@ -1,0 +1,28 @@
+# Plants
+
+On this page you can generate plants based on the answers to a form.
+
+The site will display a form containing a series of questions. Each question will have single selection options, except for the last question, which will allow you to select multiple options.
+
+# How to initialize the page
+
+To run the project locally, follow these steps:
+
+Use the command "npm run dev."
+
+You will then get something like this:
+
+ plants@1.0.0 dev
+> vite
+
+  VITE v4.4.4  ready in 249 ms
+
+  ➜  Local:   http://127.0.0.1:5173/
+  ➜  Network: use --host to expose
+  ➜  press h to show help
+
+
+Copy the local and paste the http address in your recurring browser
+
+
+© 2023 Adrian Zuniga Perez. All rights reserved.

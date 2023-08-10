@@ -1,0 +1,57 @@
+
+.plant-created-index{
+  color: #fff;
+  text-align: center;
+  margin-top: 30px;
+  width: 30%;
+  height: 800px;
+  padding-top: 50px;
+  background-color: #7859fa;
+  border-radius: 10px;
+}
+
+.plant-created-index img{
+  bottom: 400px;
+  position: absolute;
+  top: 221px;
+  right: 452px;
+  width: 233px;
+}
+
+.empty-container {
+  background-color: #fff;
+  padding: 200px;
+  margin: 0 auto;
+  width: 18.88%;
+}
+
+.result-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.result-text-left {
+  border-radius: 1px;
+  border-right: 2px solid #fff;
+  padding-right: 16px;
+  text-align: end;
+}
+
+.result-text-right {
+  padding-left: 16px;
+  text-align: start;
+}
+
+.plant-image-custom img {
+  position: absolute;
+  top: 165px;
+  width: 256px;
+}
+
+.plant-info{
+  position: relative;
+  left: 188px;
+  top: 433px;
+  display: flex;
+}

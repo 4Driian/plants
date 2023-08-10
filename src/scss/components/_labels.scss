@@ -1,0 +1,13 @@
+.question label {
+  font-size: 16px;
+}
+
+.select-color label {
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  position: relative;
+}

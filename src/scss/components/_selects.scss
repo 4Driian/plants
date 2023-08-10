@@ -1,0 +1,14 @@
+.select-plant {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+}
+
+.question select.select-plant {
+  color: #808080;
+}
+
+.question select.select-plant option:checked {
+  background-color: #654ad3;
+  color: white;
+}

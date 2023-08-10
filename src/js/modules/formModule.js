@@ -1,72 +1,91 @@
-import { PlantBuilder, capitalize } from './builderModule.js';
-import { recomendedPlant } from './recomendedResult.js';
+import PlantBuilder from "./builderModule.js";
+import recomendedPlant from "./recomendedResult.js";
+import clearButton from "./buttonModule.js";
 
-export function initializeForm() {
-  const form = document.getElementById('form');
-  const plantContainer = document.getElementById('recommendation');
+export default function initializeForm() {
+  const form = document.getElementById("form");
+  const plantContainer = document.getElementById("recommendation");
 
-  form.addEventListener('submit', function(event) {
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const place = getValue('place');
-    const sunlight = getValue('sunlight');
-    const pets = getValue('pets');
-    const water = getValue('water');
-    const style = getValue('style');
-    const extras = getCheckedValues('extras');
+    const place = document.querySelector('input[name="place"]:checked');
+    const sunlight = document.querySelector('input[name="sunlight"]:checked');
+    const pets = document.querySelector('input[name="pets"]:checked');
+    const water = document.querySelector('input[name="water"]:checked');
+    const style = document.querySelector('input[name="style"]:checked');
+    const extras = Array.from(document.querySelectorAll('input[name="extras"]:checked'));
 
     if (place && sunlight && pets && water && style) {
       const builder = new PlantBuilder();
+      let plantName, plantImage, soil, pot, potStyle, potMaterial;
 
-      const plantOptions = {
-        inside_indirect: { name: 'Sansevieria', plantImage: 'plant-sansevieria' },
-        inside_lot: { name: 'Aglaonema', plantImage: 'plant-aglaonema' },
-        outside: { name: 'Aloe', plantImage: 'plant-aloe' }
-      };
-
-      builder.withName(plantOptions[place].name).withPlantImage(plantOptions[place].plantImage);
-
-      builder.withSoil(sunlight === 'yes' ? 'Composted Soil' : 'Fertilized Soil');
-
-      builder.withPot(pets === 'yes' ? 'Ceramic pot' : 'Ceramic pot');
-
-      if (pets === 'yes') {
-        builder.withPotStyle('Substitute the soil for the easy drainage soil');
+      switch (place.value) {
+        case "inside_indirect":
+          plantName = "Sansevieria";
+          plantImage = "plant-sansevieria";
+          break;
+        case "inside_lot":
+          plantName = "Aglaonema";
+          plantImage = "plant-aglaonema";
+          break;
+        case "outside":
+          plantName = "Aloe";
+          plantImage = "plant-aloe";
+          break;
       }
 
-      builder.withPotMaterial(water === 'overwater' ? 'Clay pot' : 'Ceramic pot');
+      builder.withName(plantName).withPlantImage(plantImage);
 
-      const styleOptions = {
-        minimalism: 'Simple pot',
-        decoration: 'Simple pot decorated',
-        bright_colors: 'Painted pot decorated'
-      };
+      if (sunlight.value === "yes") {
+        soil = "Composted Soil";
+      } else if (sunlight.value === "no") {
+        soil = "Fertilized Soil";
+      }
+      builder.withSoil(soil);
 
-      builder.withPotStyle(styleOptions[style]);
+      if (pets.value === "yes") {
+        pot = "ceramic-unpainted";
+        potStyle = "Substitute the soil for the easy drainage soil";
+      } else if (pets.value === "no") {
+        pot = "ceramic-unpainted";
+      }
+      builder.withPot(pot).withPotStyle(potStyle);
 
-      const extrasList = extras.map(extra => extra.value);
+      if (water.value === "overwater") {
+        potMaterial = "pot-clay-blue";
+      } else if (water.value === "underwater" || water.value === "neither") {
+        potMaterial = "ceramic-unpainted";
+      }
+      builder.withPotMaterial(potMaterial);
+
+      switch (style.value) {
+        case "minimalism":
+          builder.withPotStyle("pot-ceramic-blue");
+          break;
+        case "decoration":
+          builder.withPotStyle("pot-ceramic-decorated-green");
+          break;
+        case "bright_colors":
+          builder.withPotStyle("pot-ceramic-decorated-purple");
+          break;
+      }
+
+      const extrasList = extras.map((extra) => extra.value);
       builder.withExtras(extrasList);
 
       const recommendation = builder.build();
-
       recomendedPlant(recommendation, plantContainer);
+      localStorage.setItem("recommendation", JSON.stringify(recommendation));
     } else {
-      alert('Please check all boxes');
+      alert("Please check all boxes");
     }
   });
 
-  const clearButton = document.getElementById('clearButton');
-  clearButton.addEventListener('click', function() {
-    form.reset();
-    plantContainer.style.display = 'none';
-  });
-}
+  const storedRecommendation = JSON.parse(localStorage.getItem("recommendation"));
+  if (storedRecommendation) {
+    recomendedPlant(storedRecommendation, plantContainer);
+  }
 
-function getValue(name) {
-  return document.querySelector(`input[name="${name}"]:checked`)?.value;
-}
-
-function getCheckedValues(name) {
-  const checkboxes = Array.from(document.querySelectorAll(`input[name="${name}"]:checked`));
-  return checkboxes.map(checkbox => ({ value: checkbox.value, image: checkbox.value }));
+  clearButton(form, plantContainer);
 }

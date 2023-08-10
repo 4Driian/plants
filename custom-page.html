@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/css/styles.css">
+  <title>Customize Your Plant</title>
+</head>
+<body class="wrapper">
+
+  <div class="custom-form">
+    <h1>Customize your plant!</h1>
+    <form id="customizeForm" class="main-form">
+      <div class="question">
+        <h2>Choose your pot </h2>
+        <div class="options">
+          <div>
+            <input type="radio" id="potMaterialCeramic" name="potMaterial" value="Ceramic" class="select-radio">
+            <label for="potMaterialCeramic">Ceramic</label>
+          </div>
+      
+          <div>
+            <input type="radio" id="potMaterialClay" name="potMaterial" value="Clay" class="select-radio">
+            <label for="potMaterialClay">Clay</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>Pot decorations:</h2>
+        <label class="switch">
+            <input type="checkbox" id="potDecorations" name="potDecorations" class="select-radio">
+            <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="question">
+          <h2>Pot color:</h2>
+          <label class="switch">
+              <input type="checkbox" id="potColorToggle" name="potColorToggle" class="select-radio">
+              <span class="slider"></span>
+          </label>
+      </div>
+
+      <div class="question" id="potColorOptions">
+        <h2>Choose pot color</h2>
+        <div class="options select-color">
+          <div>
+            <input type="radio" id="blueColor" name="potColor" value="Blue" class="radio-blue select-blue">
+            <label for="blueColor"></label>
+          </div>
+
+          <div>
+            <input type="radio" id="pinkColor" name="potColor" value="Pink" class="radio-pink select-pink">
+            <label for="pinkColor"></label>
+          </div>
+
+          <div>
+            <input type="radio" id="greenColor" name="potColor" value="Green" class="radio-green select-green">
+            <label for="greenColor"></label>
+          </div>
+
+          <div>
+            <input type="radio" id="purpleColor" name="potColor" value="Purple" class="select-radio select-purple">
+            <label for="purpleColor"></label>
+          </div>
+        </div>
+      
+      </div>
+
+      <div class="question">
+        <h2>Choose your plant</h2>
+        <select id="plantSelect" class="select-plant" name="plant">
+          <option value="Aglaonema">Aglaonema</option>
+          <option value="Aloe">Aloe</option>
+          <option value="Fern">Boston</option>
+          <option value="Cactus">Cactus</option>
+          <option value="Monstera">Monstera Deliciosa</option>
+          <option value="Peace-Lily">Peace Lily</option>
+          <option value="Sansevieria">Sansevieria</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <h2>Choose your soil</h2>
+        <div class="options">
+          <div>
+            <input type="radio" id="compostedSoil" name="soil" value="Composted" class="select-radio">
+            <label for="compostedSoil">Basic composted soil</label>
+          </div>
+
+          <div>
+            <input type="radio" id="fertilizedSoil" name="soil" value="Fertilized" class="select-radio">
+            <label for="fertilizedSoil">Premium fertilized soil</label>
+          </div>
+
+          <div>
+            <input type="radio" id="drainageSoil" name="soil" value="Drainage" class="select-radio">
+            <label for="drainageSoil">Easy drainage soil</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="question">
+        <h2>Choose your extras</h2>
+        <div class="options">
+          <div>
+            <input type="checkbox" id="mossPole" name="extras" value="Moss-pole">
+            <label for="mossPole">Moss pole</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="pebbles" name="extras" value="Pebbles">
+            <label for="pebbles">Pebbles</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="smallerPlants" name="extras" value="mini-plants">
+            <label for="smallerPlants">Smaller plants</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="send-button">Customize</button>
+    </form>
+  </div>
+
+  <div class="plant-preview plant-created-custom" id="plant-preview">
+    <h2>Plant Preview</h2>
+    <div class="plant-info">
+      <div class="result-text-left">
+        <p>Name:</p>
+        <p>Soil:</p>
+        <p>Pot:</p>
+        <p>Extras:</p>
+      </div>
+      <div>
+        <p id="previewPlantName"></p>
+        <p id="previewSoil"></p>
+        <p id="previewPot"></p>
+        <p id="previewPotColor"></p>
+        <p id="previewExtras"></p>
+      </div>
+    </div>
+    <div class="plant-image-custom" id="plantPreviewImage"></div>
+  </div>
+  
+  <script src="./src/js/customize.js" type="module"></script>
+</body>
+</html>

@@ -1,12 +1,12 @@
-export class PlantBuilder {
+export default class PlantBuilder {
   constructor() {
-    this.name = '';
-    this.soil = '';
-    this.pot = '';
-    this.potMaterial = '';
-    this.potStyle = '';
+    this.name = "";
+    this.soil = "";
+    this.pot = "";
+    this.potMaterial = "";
+    this.potStyle = "";
     this.extras = [];
-    this.plantImage = '';
+    this.plantImage = "";
   }
 
   withPlantImage(plantImage) {
@@ -51,7 +51,7 @@ export class PlantBuilder {
       pot: this.pot,
       potMaterial: this.potMaterial,
       potStyle: this.potStyle,
-      extras: this.extras
+      extras: this.extras,
     };
   }
 }

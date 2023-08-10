@@ -1,0 +1,93 @@
+.select-color input[type="radio"] {
+  display: none;
+}
+
+.select-color input[type="radio"] {
+  display: none;
+}
+
+.question input{
+  margin-bottom: 18px;
+}
+
+input[type="radio"].select-radio {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+}
+
+input[type="radio"].select-radio:checked {
+  background-color: #7859fa; 
+}
+
+.select-blue + label::before {
+  background-color:#23A9EB;
+  border-radius: 50%;
+  content: "";
+  height: 22px;
+  left: 3px;
+  opacity: 0.6;
+  position: absolute;
+  top: 3px;
+  width: 22px;
+}
+
+.select-pink + label::before {
+  background-color:#C65384;
+  border-radius: 50%;
+  content: "";
+  height: 22px;
+  left: 3px;
+  opacity: 0.6;
+  position: absolute;
+  top: 3px;
+  width: 22px;
+}
+
+.select-green + label::before {
+  background-color:#2AA040;
+  border-radius: 50%;
+  content: "";
+  height: 22px;
+  left: 3px;
+  opacity: 0.6;
+  position: absolute;
+  top: 3px;
+  width: 22px;
+}
+
+.select-purple + label::before {
+  background-color: #622AC0;
+  border-radius: 50%;
+  content: "";
+  height: 22px;
+  left: 3px;
+  opacity: 0.6;
+  position: absolute;
+  top: 3px;
+  width: 22px;
+}
+
+.select-blue:checked + label {
+  border-color:#23A9EB;
+  background-color:#23A9EB;
+}
+
+.select-pink:checked + label {
+  border-color:#C65384;
+  background-color:#C65384;
+}
+
+.select-green:checked + label {
+  border-color:#2AA040;
+  background-color:#2AA040;
+}
+
+.select-purple:checked + label {
+  border-color: #622AC0;
+  background-color: #622AC0;
+}

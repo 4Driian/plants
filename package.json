@@ -4,7 +4,8 @@
   "description": "On this page you can generate plants based on the answers to a form.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",

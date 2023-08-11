@@ -1,7 +1,9 @@
 export default function recommendedPlant (recommendation, plantContainer) {
   const imgPot = createImage(`pot-${recommendation.pot.replace(' pot', '')}`)
   const imgPlant = createImage(`plant-${recommendation.name}`)
-  const imgSoil = createImage(`soil-${recommendation.soil.replace(' Soil', '')}`)
+  const imgSoil = createImage(
+    `soil-${recommendation.soil.replace(' Soil', '')}`
+  )
 
   const extrasContainer = document.createElement('div')
   extrasContainer.className = 'extras-container'

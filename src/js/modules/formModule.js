@@ -14,7 +14,9 @@ export default function initializeForm () {
     const pets = document.querySelector('input[name="pets"]:checked')
     const water = document.querySelector('input[name="water"]:checked')
     const style = document.querySelector('input[name="style"]:checked')
-    const extras = Array.from(document.querySelectorAll('input[name="extras"]:checked'))
+    const extras = Array.from(
+      document.querySelectorAll('input[name="extras"]:checked')
+    )
 
     if (place && sunlight && pets && water && style) {
       const builder = new PlantBuilder()
@@ -82,7 +84,9 @@ export default function initializeForm () {
     }
   })
 
-  const storedRecommendation = JSON.parse(localStorage.getItem('recommendation'))
+  const storedRecommendation = JSON.parse(
+    localStorage.getItem('recommendation')
+  )
   if (storedRecommendation) {
     recomendedPlant(storedRecommendation, plantContainer)
   }

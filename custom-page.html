@@ -121,30 +121,33 @@
         </div>
       </div>
 
-      <button type="submit" class="send-button">Customize</button>
     </form>
   </div>
 
-  <div class="plant-preview plant-created-custom" id="plant-preview">
-    <h2>Plant Preview</h2>
-    <div class="plant-info">
-      <div class="result-text-left">
-        <p>Name:</p>
-        <p>Soil:</p>
-        <p>Pot:</p>
-        <p>Extras:</p>
+  <div>
+    <div class="plant-preview plant-created-custom" id="plant-preview">
+      <h2>Plant Preview</h2>
+      <div class="plant-info">
+        <div class="result-text-left">
+          <p>Name:</p>
+          <p>Soil:</p>
+          <p>Pot:</p>
+          <p>Extras:</p>
+        </div>
+        <div class="result-text-right">
+          <p id="previewPlantName"></p>
+          <p id="previewSoil"></p>
+          <p id="previewPot"></p>
+          <p id="previewPotColor"></p>
+          <p id="previewExtras"></p>
+        </div>
       </div>
-      <div>
-        <p id="previewPlantName"></p>
-        <p id="previewSoil"></p>
-        <p id="previewPot"></p>
-        <p id="previewPotColor"></p>
-        <p id="previewExtras"></p>
-      </div>
+      <div class="plant-image-custom" id="plantPreviewImage"></div>
     </div>
-    <div class="plant-image-custom" id="plantPreviewImage"></div>
+    <div class="items-center">
+      <button type="submit" class="send-button availability">Check store availability ></button>
+    </div>
   </div>
-  
   <script src="./src/js/customize.js" type="module"></script>
 </body>
 </html>

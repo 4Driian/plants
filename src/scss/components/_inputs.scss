@@ -1,3 +1,5 @@
+@import '../base/variables';
+
 .select-color input[type="radio"] {
   display: none;
 }
@@ -21,11 +23,11 @@ input[type="radio"].select-radio {
 }
 
 input[type="radio"].select-radio:checked {
-  background-color: #7859fa; 
+  background-color: $purple; 
 }
 
 .select-blue + label::before {
-  background-color:#23A9EB;
+  background-color: $light-blue;
   border-radius: 50%;
   content: "";
   height: 22px;
@@ -37,7 +39,7 @@ input[type="radio"].select-radio:checked {
 }
 
 .select-pink + label::before {
-  background-color:#C65384;
+  background-color: $pink;
   border-radius: 50%;
   content: "";
   height: 22px;
@@ -61,7 +63,7 @@ input[type="radio"].select-radio:checked {
 }
 
 .select-purple + label::before {
-  background-color: #622AC0;
+  background-color: $purple;
   border-radius: 50%;
   content: "";
   height: 22px;
@@ -73,21 +75,21 @@ input[type="radio"].select-radio:checked {
 }
 
 .select-blue:checked + label {
-  border-color:#23A9EB;
-  background-color:#23A9EB;
+  border-color:$light-blue;
+  background-color:$light-blue;
 }
 
 .select-pink:checked + label {
-  border-color:#C65384;
-  background-color:#C65384;
+  border-color:$pink;
+  background-color:$pink;
 }
 
 .select-green:checked + label {
-  border-color:#2AA040;
-  background-color:#2AA040;
+  border-color: $green;
+  background-color:$green;
 }
 
 .select-purple:checked + label {
-  border-color: #622AC0;
-  background-color: #622AC0;
+  border-color: $purple;
+  background-color: $purple;
 }

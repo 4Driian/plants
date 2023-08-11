@@ -20,7 +20,7 @@ function loadPreviewImages (data) {
   plantPreviewImage.appendChild(potImage)
 
   const plantImage = document.createElement('img')
-  plantImage.src = `../src/assets/img/plant-${data.name}.png`
+  plantImage.src = `../src/assets/img/plant-${data.name.toLowerCase()}.png`
   plantPreviewImage.appendChild(plantImage)
 
   const soilImage = document.createElement('img')
@@ -38,23 +38,15 @@ function loadPreviewImages (data) {
 }
 
 function loadPreviewData (data) {
-  const previewElements = {
-    previewPlantName: 'name',
-    previewSoil: 'soil',
-    previewPot: 'pot',
-    previewPotColor: 'potColor',
-    previewExtras: Array.isArray(data.extras) ? data.extras.join(', ') : ''
-  }
-
-  for (const [elementId, value] of Object.entries(previewElements)) {
-    const element = document.getElementById(elementId)
-    if (elementId === 'previewExtras') {
-      element.textContent = value
-    } else {
-      element.textContent = data[value]
-    }
-  }
-
+  document.getElementById('previewPlantName').textContent = data.name
+  document.getElementById('previewSoil').textContent = data.soil
+  document.getElementById('previewPot').textContent = data.pot
+  document.getElementById('previewPotColor').textContent = data.potColor
+  document.getElementById('previewExtras').textContent = Array.isArray(
+    data.extras
+  )
+    ? data.extras.join(', ')
+    : ''
   loadPreviewImages(data)
 }
 
@@ -74,6 +66,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (customizeForm) {
+    const updatePreview = () => {
+      const formData = new FormData(customizeForm)
+      const selectedPlant = plantSelect.value
+      const potDecorations = formData.get('potDecorations')
+      const potColor = formData.get('potColor')
+      const potMaterial = formData.get('potMaterial')
+      const soil = formData.get('soil')
+      const selectedExtras = Array.from(extrasCheckboxes)
+        .filter((chk) => chk.checked)
+        .map((chk) => chk.value)
+
+      const customizedRecommendation = {
+        name: selectedPlant,
+        soil,
+        pot: '',
+        potStyle: potDecorations === 'on' ? 'Decorated pot' : 'Simple pot',
+        potColor: potColor || 'unpainted',
+        extras: selectedExtras,
+        potMaterial
+      }
+
+      localStorage.setItem(
+        'recommendation',
+        JSON.stringify(customizedRecommendation)
+      )
+
+      recommendedPlant(customizedRecommendation, plantPreviewImage)
+      loadPreviewData(customizedRecommendation)
+    }
+
     customizeForm.addEventListener('change', (event) => {
       if (
         (event.target.name === 'potColor' ||
@@ -90,40 +112,21 @@ document.addEventListener('DOMContentLoaded', () => {
           potImage.src = `../src/assets/pots/pot-${selectedMaterial.toLowerCase()}-${potStyle}${selectedColor.toLowerCase()}.png`
         }
       }
+      updatePreview()
     })
 
-    function updateStoredRecommendation (key, value) {
-      const storedRecommendation = JSON.parse(
-        localStorage.getItem('recommendation')
-      )
-      if (storedRecommendation) {
-        storedRecommendation[key] = value
-        loadPreviewData(storedRecommendation)
-      }
-    }
-
-    plantSelect.addEventListener('change', () => {
-      updateStoredRecommendation('name', plantSelect.value)
-    })
+    plantSelect.addEventListener('change', updatePreview)
 
     soilOptions.forEach((option) => {
-      option.addEventListener('change', () => {
-        updateStoredRecommendation('soil', customizeForm.elements.soil.value)
-      })
+      option.addEventListener('change', updatePreview)
     })
 
-    extrasCheckboxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', () => {
-        const selectedExtras = Array.from(extrasCheckboxes)
-          .filter((checkbox) => checkbox.checked)
-          .map((checkbox) => checkbox.value)
-        updateStoredRecommendation('extras', selectedExtras)
-      })
+    extrasCheckboxes.forEach((chk) => {
+      chk.addEventListener('change', updatePreview)
     })
 
-    const storedRecommendation = JSON.parse(
-      localStorage.getItem('recommendation')
-    )
+    const storedRecommendation =
+      JSON.parse(localStorage.getItem('recommendation')) || {}
     if (storedRecommendation) {
       loadPreviewData(storedRecommendation)
       plantSelect.value = storedRecommendation.name
@@ -132,39 +135,16 @@ document.addEventListener('DOMContentLoaded', () => {
           option.checked = true
         }
       })
-      extrasCheckboxes.forEach((checkbox) => {
-        if (storedRecommendation.extras.includes(checkbox.value)) {
-          checkbox.checked = true
+      extrasCheckboxes.forEach((chk) => {
+        if (storedRecommendation.extras.includes(chk.value)) {
+          chk.checked = true
         }
       })
     }
 
     customizeForm.addEventListener('submit', (event) => {
       event.preventDefault()
-      const formData = new FormData(customizeForm)
-      const pot = formData.get('pot')
-      const potDecorations = formData.get('potDecorations')
-      const potColor = formData.get('potColor')
-      const potMaterial = formData.get('potMaterial')
-      const plant = formData.get('plant')
-      const soil = formData.get('soil')
-      const extras = formData.getAll('extras')
-
-      const customizedRecommendation = {
-        name: plant,
-        soil,
-        pot,
-        potStyle: potDecorations === 'on' ? 'Decorated pot' : 'Simple pot',
-        potColor: potColor || 'unpainted',
-        extras,
-        potMaterial
-      }
-      recommendedPlant(customizedRecommendation, plantPreviewImage)
-      localStorage.setItem(
-        'customizedRecommendation',
-        JSON.stringify(customizedRecommendation)
-      )
-      loadPreviewData(customizedRecommendation)
+      updatePreview()
     })
   }
 })

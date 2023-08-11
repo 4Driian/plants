@@ -1,41 +1,49 @@
 export default function recommendedPlant (recommendation, plantContainer) {
-  const imgPot = createImage(`pot-${recommendation.pot.replace(' pot', '')}`)
-  const imgPlant = createImage(`plant-${recommendation.name}`)
-  const imgSoil = createImage(
-    `soil-${recommendation.soil.replace(' Soil', '')}`
+  const container = plantContainer
+
+  const storedRecommendation = JSON.parse(
+    localStorage.getItem('recommendation')
   )
+
+  const imgPot = document.createElement('img')
+  if (storedRecommendation) {
+    const potStyle =
+      storedRecommendation.potStyle === 'Decorated pot'
+        ? 'decorated-'
+        : 'simple-'
+    const potColor = storedRecommendation.potColor
+    const potMaterial = storedRecommendation.potMaterial.toLowerCase()
+    imgPot.src = `../src/assets/pots/pot-${potMaterial}-${potStyle}${potColor}.png`
+  } else {
+    imgPot.src = `../src/assets/pots/pot-${recommendation.pot.replace(
+      ' pot',
+      ''
+    )}.png`
+  }
+
+  const imgPlant = document.createElement('img')
+  imgPlant.src = `../src/assets/img/plant-${recommendation.name.toLowerCase()}.png`
+
+  const imgSoil = document.createElement('img')
+  imgSoil.src = `../src/assets/img/soil-${recommendation.soil.replace(
+    ' Soil',
+    ''
+  )}.png`
 
   const extrasContainer = document.createElement('div')
   extrasContainer.className = 'extras-container'
+
   recommendation.extras.forEach((extra) => {
     const extraImage = createImage(extra)
     extrasContainer.appendChild(extraImage)
   })
 
-  plantContainer.innerHTML = ''
-  plantContainer.appendChild(imgPot)
-  plantContainer.appendChild(imgPlant)
-  plantContainer.appendChild(imgSoil)
-  plantContainer.appendChild(extrasContainer)
+  container.innerHTML = ''
+  container.appendChild(imgPot)
+  container.appendChild(imgPlant)
+  container.appendChild(imgSoil)
+  container.appendChild(extrasContainer)
 
-  const recommendationInfo = createRecommendationInfo(recommendation)
-  plantContainer.appendChild(recommendationInfo)
-
-  const customizeButton = document.getElementById('customizeButton')
-  customizeButton.addEventListener('click', () => {
-    window.location.href = 'custom-page.html'
-  })
-
-  plantContainer.style.display = 'block'
-}
-
-function createImage (filename) {
-  const img = document.createElement('img')
-  img.src = `../src/assets/img/${filename}.png`
-  return img
-}
-
-function createRecommendationInfo (recommendation) {
   const recommendationInfo = document.createElement('div')
   recommendationInfo.innerHTML = `
     <p>The perfect plant for you is...</p>
@@ -51,11 +59,23 @@ function createRecommendationInfo (recommendation) {
       <div class="result-text-right">
         <p>${recommendation.name}</p>
         <p>${recommendation.soil}</p>
-        <p>${recommendation.pot}</p>
+        <p>${recommendation.potColor}</p>
         <p>${recommendation.extras.join(', ')}</p>
       </div>  
     </div>
     <button id="customizeButton" class="customize-button clear-button">Customize</button>
   `
-  return recommendationInfo
+  container.appendChild(recommendationInfo)
+
+  const customizeButton = document.getElementById('customizeButton')
+  customizeButton.addEventListener('click', () => {
+    window.location.href = 'custom-page.html'
+  })
+  container.style.display = 'block'
+}
+
+function createImage (filename) {
+  const img = document.createElement('img')
+  img.src = `../src/assets/img/${filename}.png`
+  return img
 }

@@ -1,39 +1,19 @@
+/*Variables*/
+@import './base/variables';
+
+/*components*/
 @import './components/buttons';
 @import './components/inputs';
 @import './components/labels';
 @import './components/titles';
 @import './components/selects';
+
+/*layouts*/
+@import './layout/form';
+
+/*pages*/
 @import './pages/custom';
 @import './pages/index';
 
-
-body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .wrapper {
-    width: 90%;
-    display: flex;
-    margin: 0 auto;
-    justify-content: space-evenly;
-  }
-
-  
-  .main-title {
-    text-align: start;
-    color: #5f5f5f;
-  }
-
-  
-  .question {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    color: #5f5f5f;
-  }
-  
-
-  .options div {
-    display: flex;
-    align-items: baseline;
-  }
-  
+/*This document has general settings that we can use in all pages, tags such as body, wrapper etc*/
+@import './general/general';

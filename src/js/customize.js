@@ -6,6 +6,7 @@ function loadPreviewImages (data) {
 
   const potColor = data.potColor || 'unpainted'
   const potStyle = data.potStyle === 'Decorated pot' ? 'decorated-' : ''
+  console.log(potColor)
 
   const selectedMaterial = document.querySelector(
     'input[name="potMaterial"]:checked'

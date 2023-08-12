@@ -1,0 +1,31 @@
+@import '../base/variables';
+
+.more-info-stock-header {
+  border-bottom: 2px solid $gray;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.more-info-stock-content {
+  display: none;
+  padding: 10px;
+}
+
+.more-info-stock-header {
+  cursor: pointer;
+}
+
+.more-info-stock-content.active {
+  display: block;
+}
+
+.product-list {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.product-price {
+  font-weight: 600;
+}

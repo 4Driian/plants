@@ -1,0 +1,54 @@
+
+@import '../base/variables';
+.order-plant {
+  color: $white;
+  text-align: center;
+  margin-top: 30px;
+  width: 28%;
+  height: 700px;
+  padding-top: 50px;
+  background-color: $purple;
+  border-radius: 10px;
+  & img{
+    position: absolute;
+    width: 233px;
+    bottom: 420px;
+    left: 355px;
+  }
+}
+
+.plant-details {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.order-message {
+  padding: 14px 15px 10px 17px;
+  width: fit-content;
+  color: $white;
+  border-radius: 3px;
+}
+
+.types-of-care li {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  width: 350px;
+}
+
+.product-list li {
+  margin-bottom: 6px;
+  background: #f8f8f88c;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.more-info-stock-content p {
+  width: 420px;
+}
+
+.more-info-stock-header {
+  width: 80%;
+}

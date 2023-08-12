@@ -24,15 +24,15 @@ export default function initializeForm () {
 
       switch (place.value) {
         case 'inside_indirect':
-          plantName = 'Sansevieria'
+          plantName = 'sansevieria'
           plantImage = 'plant-sansevieria'
           break
         case 'inside_lot':
-          plantName = 'Aglaonema'
+          plantName = 'aglaonema'
           plantImage = 'plant-aglaonema'
           break
         case 'outside':
-          plantName = 'Aloe'
+          plantName = 'aloe'
           plantImage = 'plant-aloe'
           break
       }

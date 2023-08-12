@@ -51,7 +51,7 @@ input[type="radio"].select-radio:checked {
 }
 
 .select-green + label::before {
-  background-color:#2AA040;
+  background-color:$green;
   border-radius: 50%;
   content: "";
   height: 22px;

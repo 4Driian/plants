@@ -147,7 +147,7 @@ function v() {
       i.value === 'inside_indirect'
         ? s.withName('Sansevieria').withPlantImage('plant-sansevieria')
         : i.value === 'inside_lot'
-        ? s.withName('Aglaonema').withPlantImage('plant-aglaonema')
+        ? s.withName('aglaonema').withPlantImage('plant-aglaonema')
         : i.value === 'outside' &&
           s.withName('Aloe').withPlantImage('plant-aloe'),
         o.value === 'yes'

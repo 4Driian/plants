@@ -7,6 +7,8 @@
 @import './components/labels';
 @import './components/titles';
 @import './components/selects';
+@import './components/accordeon';
+@import './components/switch';
 
 /*layouts*/
 @import './layout/form';
@@ -14,6 +16,7 @@
 /*pages*/
 @import './pages/custom';
 @import './pages/index';
+@import './pages/order';
 
 /*This document has general settings that we can use in all pages, tags such as body, wrapper etc*/
 @import './general/general';

@@ -5,6 +5,7 @@
 }
 
 .send-button {
+  text-decoration: none;
   background-color: #7859fa;
   border-radius: 7px;
   border: none;
@@ -20,16 +21,15 @@
 .clear-button {
   background-color: #fff;
   border-radius: 7px;
-  border: 2px solid #7859fa;
+  border: 2px solid #654ad3;
   color: #000;
   cursor: pointer;
   margin-top: 10px;
   padding: 11px 25px 10px 25px;
 }
-
-.clear-button:hover {
+.clear-button :hover {
   border: 2px solid #654ad3;
-  background-color: #e7e7e7;
+  background-color: #d4d4d4;
 }
 
 .clear-button, .send-button {
@@ -37,48 +37,17 @@
   margin-bottom: 10px;
 }
 
-/*switch*/
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+.order-now {
+  background-color: #D1Cdde;
+  border: none;
+  padding: 14px 30px 14px 30px;
+  border-radius: 7px;
+  color: #fff;
+  margin-top: 15px;
+  margin-bottom: 150px;
 }
-
-.switch input[type=checkbox] {
-  display: none;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #654ad3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
+.order-now :hover {
+  background-color: #d4d4d4;
 }
 
 .select-color input[type=radio] {
@@ -104,11 +73,11 @@ input[type=radio].select-radio {
 }
 
 input[type=radio].select-radio:checked {
-  background-color: #7859FA;
+  background-color: #7859fa;
 }
 
 .select-blue + label::before {
-  background-color: #23A9EB;
+  background-color: #23a9eb;
   border-radius: 50%;
   content: "";
   height: 22px;
@@ -120,7 +89,7 @@ input[type=radio].select-radio:checked {
 }
 
 .select-pink + label::before {
-  background-color: #C65384;
+  background-color: #c65384;
   border-radius: 50%;
   content: "";
   height: 22px;
@@ -132,7 +101,7 @@ input[type=radio].select-radio:checked {
 }
 
 .select-green + label::before {
-  background-color: #2AA040;
+  background-color: #2aa040;
   border-radius: 50%;
   content: "";
   height: 22px;
@@ -144,7 +113,7 @@ input[type=radio].select-radio:checked {
 }
 
 .select-purple + label::before {
-  background-color: #7859FA;
+  background-color: #7859fa;
   border-radius: 50%;
   content: "";
   height: 22px;
@@ -156,23 +125,23 @@ input[type=radio].select-radio:checked {
 }
 
 .select-blue:checked + label {
-  border-color: #23A9EB;
-  background-color: #23A9EB;
+  border-color: #23a9eb;
+  background-color: #23a9eb;
 }
 
 .select-pink:checked + label {
-  border-color: #C65384;
-  background-color: #C65384;
+  border-color: #c65384;
+  background-color: #c65384;
 }
 
 .select-green:checked + label {
-  border-color: #2AA040;
-  background-color: #2AA040;
+  border-color: #2aa040;
+  background-color: #2aa040;
 }
 
 .select-purple:checked + label {
-  border-color: #7859FA;
-  background-color: #7859FA;
+  border-color: #7859fa;
+  background-color: #7859fa;
 }
 
 .question label {
@@ -199,7 +168,7 @@ h1 {
 
 .main-title {
   text-align: start;
-  color: #5f5f5f;
+  color: #5F5F5F;
 }
 
 .select-plant {
@@ -217,6 +186,77 @@ h1 {
   color: white;
 }
 
+.more-info-stock-header {
+  border-bottom: 2px solid #d4d4d4;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.more-info-stock-content {
+  display: none;
+  padding: 10px;
+}
+
+.more-info-stock-header {
+  cursor: pointer;
+}
+
+.more-info-stock-content.active {
+  display: block;
+}
+
+.product-list {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.product-price {
+  font-weight: 600;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input[type=checkbox] {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #d4d4d4;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #fff;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #654ad3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
 /*layouts*/
 .main-form {
   width: 54%;
@@ -232,7 +272,7 @@ h1 {
 .question {
   margin-top: 15px;
   margin-bottom: 15px;
-  color: #5f5f5f;
+  color: #5F5F5F;
 }
 
 /*pages*/
@@ -251,7 +291,6 @@ h1 {
   background-color: #7859fa;
   border-radius: 10px;
 }
-
 .plant-created-custom img {
   bottom: 400px;
   position: absolute;
@@ -260,22 +299,11 @@ h1 {
   width: 233px;
 }
 
-.select-color div {
-  position: relative;
-}
-
 .select-color {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-
-.select-color {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .select-color div {
   position: relative;
 }
@@ -295,12 +323,11 @@ h1 {
   background-color: #7859fa;
   border-radius: 10px;
 }
-
 .plant-created-index img {
   bottom: 400px;
   position: absolute;
   top: 221px;
-  right: 452px;
+  right: 343px;
   width: 233px;
 }
 
@@ -338,8 +365,61 @@ h1 {
 .plant-info {
   position: relative;
   left: 160px;
-  top: 433px;
+  top: 87px;
   display: flex;
+}
+
+.order-plant {
+  color: #fff;
+  text-align: center;
+  margin-top: 30px;
+  width: 28%;
+  height: 700px;
+  padding-top: 50px;
+  background-color: #7859fa;
+  border-radius: 10px;
+}
+.order-plant img {
+  position: absolute;
+  width: 233px;
+  bottom: 420px;
+  left: 355px;
+}
+
+.plant-details {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.order-message {
+  padding: 14px 15px 10px 17px;
+  width: fit-content;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.types-of-care li {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  width: 350px;
+}
+
+.product-list li {
+  margin-bottom: 6px;
+  background: rgba(248, 248, 248, 0.5490196078);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.more-info-stock-content p {
+  width: 420px;
+}
+
+.more-info-stock-header {
+  width: 80%;
 }
 
 /*This document has general settings that we can use in all pages, tags such as body, wrapper etc*/

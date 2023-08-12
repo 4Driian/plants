@@ -1,33 +1,34 @@
+@import '../base/variables';
 .buttons {
   margin: 0 auto;
 }
 
 .send-button {
+  text-decoration: none;
   background-color: #7859fa;
   border-radius: 7px;
   border: none;
-  color: #fff;
+  color: $white;
   cursor: pointer;
   padding: 13px 25px 12px 25px;
 }
 
 .send-button:hover {
-  background-color: #654ad3;
+  background-color: $light-purple;
 }
 
 .clear-button {
-  background-color: #fff;
+  background-color: $white;
   border-radius: 7px;
-  border: 2px solid #7859fa;
+  border: 2px solid $light-purple;
   color: #000;
   cursor: pointer;
   margin-top: 10px;
   padding: 11px 25px 10px 25px;
-}
-
-.clear-button:hover {
-  border: 2px solid #654ad3;
-  background-color: #e7e7e7;
+  & :hover {
+    border: 2px solid $light-purple;
+    background-color: $gray;
+  }
 }
 
 .clear-button ,.send-button  {
@@ -35,46 +36,15 @@
   margin-bottom: 10px;
 }
 
-/*switch*/
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input[type="checkbox"] {
-  display: none;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #654ad3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
+.order-now {
+  background-color: #D1Cdde;
+  border: none;
+  padding: 14px 30px 14px 30px;
+  border-radius: 7px;
+  color: $white;
+  margin-top: 15px;
+  margin-bottom: 150px;
+  & :hover {
+    background-color: $gray;
+  }
 }

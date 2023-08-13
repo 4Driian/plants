@@ -70,13 +70,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
       const data = await getDetails(plantOrderStorage.name)
 
-      const descriptionElement = document.getElementById(
-        'plantDescription'
-      )
+      const descriptionElement = document.getElementById('plantDescription')
       descriptionElement.innerHTML = `<p>${data.description}</p>`
 
-      const caringTipsAccordionContent =
-        document.getElementById('careTips')
+      const caringTipsAccordionContent = document.getElementById('careTips')
       caringTipsAccordionContent.innerHTML = ''
 
       const textCareTips = document.createElement('div')

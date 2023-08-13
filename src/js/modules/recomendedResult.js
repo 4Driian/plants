@@ -8,9 +8,7 @@ export default function recommendedPlant (recommendation, plantContainer) {
   const imgPot = document.createElement('img')
   if (storedRecommendation) {
     const potStyle =
-      storedRecommendation.potStyle === 'Decorated pot'
-        ? 'decorated-'
-        : ''
+      storedRecommendation.potStyle === 'Decorated pot' ? 'decorated-' : ''
     const potColor = storedRecommendation.potColor
     const potMaterial = storedRecommendation.potMaterial.toLowerCase()
     imgPot.src = `../src/assets/pots/pot-${potMaterial}-${potStyle}${potColor}.png`

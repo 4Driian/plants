@@ -1,48 +1,48 @@
-export default function recommendedPlant (recommendation, plantContainer) {
-  const container = plantContainer
+export default function recommendedPlant(recommendation, plantContainer) {
+  const container = plantContainer;
 
   const storedRecommendation = JSON.parse(
     localStorage.getItem('recommendation')
-  )
+  );
 
-  const imgPot = document.createElement('img')
+  const imgPot = document.createElement('img');
   if (storedRecommendation) {
     const potStyle =
-      storedRecommendation.potStyle === 'Decorated pot' ? 'decorated-' : ''
-    const potColor = storedRecommendation.potColor
-    const potMaterial = storedRecommendation.potMaterial.toLowerCase()
-    imgPot.src = `../src/assets/pots/pot-${potMaterial}-${potStyle}${potColor}.png`
+      storedRecommendation.potStyle === 'Decorated pot' ? 'decorated-' : '';
+    const potColor = storedRecommendation.potColor;
+    const potMaterial = storedRecommendation.potMaterial.toLowerCase();
+    imgPot.src = `../src/assets/pots/pot-${potMaterial}-${potStyle}${potColor}.png`;
   } else {
     imgPot.src = `../src/assets/pots/pot-${recommendation.pot.replace(
       ' pot',
       ''
-    )}.png`
+    )}.png`;
   }
 
-  const imgPlant = document.createElement('img')
-  imgPlant.src = `../src/assets/img/plant-${recommendation.name.toLowerCase()}.png`
+  const imgPlant = document.createElement('img');
+  imgPlant.src = `../src/assets/img/plant-${recommendation.name.toLowerCase()}.png`;
 
-  const imgSoil = document.createElement('img')
+  const imgSoil = document.createElement('img');
   imgSoil.src = `../src/assets/img/soil-${recommendation.soil.replace(
     ' Soil',
     ''
-  )}.png`
+  )}.png`;
 
-  const extrasContainer = document.createElement('div')
-  extrasContainer.className = 'extras-container'
+  const extrasContainer = document.createElement('div');
+  extrasContainer.className = 'extras-container';
 
   recommendation.extras.forEach((extra) => {
-    const extraImage = createImage(extra)
-    extrasContainer.appendChild(extraImage)
-  })
+    const extraImage = createImage(extra);
+    extrasContainer.appendChild(extraImage);
+  });
 
-  container.innerHTML = ''
-  container.appendChild(imgPot)
-  container.appendChild(imgPlant)
-  container.appendChild(imgSoil)
-  container.appendChild(extrasContainer)
+  container.innerHTML = '';
+  container.appendChild(imgPot);
+  container.appendChild(imgPlant);
+  container.appendChild(imgSoil);
+  container.appendChild(extrasContainer);
 
-  const recommendationInfo = document.createElement('div')
+  const recommendationInfo = document.createElement('div');
   recommendationInfo.innerHTML = `
     <p>The perfect plant for you is...</p>
     <h3 class="plant-created-title">${recommendation.name}</h3>
@@ -62,18 +62,18 @@ export default function recommendedPlant (recommendation, plantContainer) {
       </div>  
     </div>
     <button id="customizeButton" class="customize-button clear-button">Customize</button>
-  `
-  container.appendChild(recommendationInfo)
+  `;
+  container.appendChild(recommendationInfo);
 
-  const customizeButton = document.getElementById('customizeButton')
+  const customizeButton = document.getElementById('customizeButton');
   customizeButton.addEventListener('click', () => {
-    window.location.href = 'custom-page.html'
-  })
-  container.style.display = 'block'
+    window.location.href = 'custom-page.html';
+  });
+  container.style.display = 'block';
 }
 
-function createImage (filename) {
-  const img = document.createElement('img')
-  img.src = `../src/assets/img/${filename}.png`
-  return img
+function createImage(filename) {
+  const img = document.createElement('img');
+  img.src = `../src/assets/img/${filename}.png`;
+  return img;
 }

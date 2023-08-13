@@ -1,4 +1,4 @@
-const { defineConfig } = require('vite')
+const { defineConfig } = require('vite');
 
 module.exports = defineConfig({
   build: {
@@ -7,8 +7,8 @@ module.exports = defineConfig({
       input: {
         main: './index.html',
         custom: './custom-page.html',
-        order: './order.html'
-      }
-    }
-  }
-})
+        order: './order.html',
+      },
+    },
+  },
+});

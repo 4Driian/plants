@@ -1,11 +1,11 @@
-export function generatePrice (plantOrderStorage) {
+export function generatePrice(plantOrderStorage) {
   const priceBreakdownElement = document.getElementById(
     'priceBreakdownContent'
-  )
-  priceBreakdownElement.innerHTML = ''
+  );
+  priceBreakdownElement.innerHTML = '';
 
-  const priceListElement = document.createElement('ul')
-  priceListElement.classList.add('product-list')
+  const priceListElement = document.createElement('ul');
+  priceListElement.classList.add('product-list');
 
   const priceData = {
     aglaonema: 12.99,
@@ -27,10 +27,10 @@ export function generatePrice (plantOrderStorage) {
     Green: 1.0,
     Pink: 1.0,
     Blue: 1.0,
-    'Decorated pot': 4.0
-  }
+    'Decorated pot': 4.0,
+  };
 
-  let totalPrice = 0
+  let totalPrice = 0;
   const selectedItems = {
     [plantOrderStorage.name]: true,
     [plantOrderStorage.potMaterial]: true,
@@ -38,37 +38,37 @@ export function generatePrice (plantOrderStorage) {
     [plantOrderStorage.potColor]: true,
     [plantOrderStorage.soil]: true,
     ...plantOrderStorage.extras.reduce((acc, extra) => {
-      acc[extra] = true
-      return acc
-    }, {})
-  }
+      acc[extra] = true;
+      return acc;
+    }, {}),
+  };
 
   for (const item in priceData) {
     if (selectedItems[item]) {
-      const priceItem = document.createElement('li')
-      const price = priceData[item]
+      const priceItem = document.createElement('li');
+      const price = priceData[item];
       const itemName = item
         .replace(/-/g, ' ')
-        .replace(/\b\w/g, (c) => c.toUpperCase())
+        .replace(/\b\w/g, (c) => c.toUpperCase());
 
-      const priceSpan = document.createElement('span')
-      priceSpan.textContent = `$${price.toFixed(2)}`
-      priceSpan.classList.add('product-price')
+      const priceSpan = document.createElement('span');
+      priceSpan.textContent = `$${price.toFixed(2)}`;
+      priceSpan.classList.add('product-price');
 
-      const priceItemText = document.createElement('span')
-      priceItemText.classList.add('product-name')
-      priceItemText.textContent = itemName + ' '
+      const priceItemText = document.createElement('span');
+      priceItemText.classList.add('product-name');
+      priceItemText.textContent = itemName + ' ';
 
-      priceItem.appendChild(priceItemText)
-      priceItem.appendChild(priceSpan)
-      priceListElement.appendChild(priceItem)
-      totalPrice += price
+      priceItem.appendChild(priceItemText);
+      priceItem.appendChild(priceSpan);
+      priceListElement.appendChild(priceItem);
+      totalPrice += price;
     }
   }
 
-  const totalItem = document.createElement('li')
-  totalItem.textContent = `Total: $${totalPrice.toFixed(2)}`
-  priceListElement.appendChild(totalItem)
+  const totalItem = document.createElement('li');
+  totalItem.textContent = `Total: $${totalPrice.toFixed(2)}`;
+  priceListElement.appendChild(totalItem);
 
-  priceBreakdownElement.appendChild(priceListElement)
+  priceBreakdownElement.appendChild(priceListElement);
 }
